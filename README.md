@@ -24,12 +24,16 @@ This setup focuses on **compact layout**, **clean visuals**, and **subtle animat
 
 
 ## Installation Guide
+1. **Enable userChrome customization in about:config**
 
-1. **Open your Firefox profile folder:**
+    Navigate to **about:config** via the address bar and click the 'Accept the Risk and Continue' button if it appears.
+    Search for "toolkit.legacyUserProfileCustomizations.stylesheets" and toggle it to true by double-clicking it.
+
+2. **Open your Firefox profile folder:**
    - In Firefox, go to `about:profiles`
    - Click **"Open Folder"** next to your active profile
 
-2. **Create a `chrome` folder** if it doesn't exist
+3. **Create a `chrome` folder** if it doesn't exist
 
-3. **Copy the CSS:**
+4. **Copy the CSS:**
 
