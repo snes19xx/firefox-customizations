@@ -21,7 +21,8 @@ This setup focuses on **compact layout**, **clean visuals**, and **subtle animat
 ## Screenshots
 
 > This gifs show the style in action:
-> (media/demo.gif)
+> ![Demo](media/demo.gif)
+
 
 
 ## Installation Guide
