@@ -7,8 +7,6 @@ A collection of personal UI tweaks and enhancements for Firefox using `userChrom
 
 This setup focuses on **compact layout**, **clean visuals**, and **subtle animations**, designed for minimalists and power users.
 
----
-
 ## Features
 
 - Reduced tab height & compact toolbars
@@ -19,14 +17,11 @@ This setup focuses on **compact layout**, **clean visuals**, and **subtle animat
 - Scaled URL bar on hover/focus
 - Optional: Hide tab bar when only one tab is open
 
----
 
 ## Screenshots
 
 > These screenshots show the style in action:
 
-
----
 
 ## Installation Guide
 
