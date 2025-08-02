@@ -1,0 +1,142 @@
+/* === General Tweaks === */
+
+:root {
+    --tab-min-height: 24px !important; /* Default is ~33-39px depending on DPI */
+    --toolbarbutton-inner-padding: 4px !important; /* Compact toolbar buttons */
+}
+
+/* Apply font only to safe areas */
+#navigator-toolbox,
+#TabsToolbar,
+.tabbrowser-tab,
+#nav-bar,
+#urlbar,
+#PersonalToolbar {
+    font-family: "JetBrains Mono", monospace !important;
+}
+
+/* Restore correct font for titlebar button icons */
+#titlebar-buttonbox,
+#titlebar-buttonbox-container {
+    font-family: system-ui !important;
+    z-index: 1000 !important;
+    pointer-events: auto !important;
+}
+
+/* Hide site info (lock icon) */
+#identity-box {
+    display: none;
+}
+
+/* Make sure titlebar is layered correctly */
+#titlebar {
+    position: relative !important;
+    z-index: 100 !important;
+    pointer-events: auto !important;
+}
+
+/* Optional: Hide single tab bar (with care) */
+@media (-moz-bool-pref: "animatedFox.hideSingleTab") {
+    .tabbrowser-tab:only-of-type {
+        visibility: hidden !important;
+        position: absolute !important;
+        pointer-events: none !important;
+    }
+
+    :has(.tabbrowser-tab:only-of-type) #nav-bar {
+        top: -3rem !important;
+    }
+
+    :has(.tabbrowser-tab:only-of-type) #navigator-toolbox:is(:hover, :focus-within, :has([open])) #nav-bar {
+        top: 1rem !important;
+    }
+
+    .tabbrowser-tab:only-of-type::after {
+        content: '';
+        position: fixed !important;
+        right: 0;
+        left: 0;
+        top: 0;
+        height: 1rem;
+    }
+}
+
+/* New tab button fade out */
+#tabs-newtab-button {
+    opacity: 0;
+    transition: 0.2s opacity ease;
+}
+
+/* Tab sizing and transitions */
+.tabbrowser-tab {
+    transition: min-width 0.3s cubic-bezier(0.270, 0.910, 0.435, 1.280),
+                max-width 0.3s cubic-bezier(0.270, 0.910, 0.435, 1.280),
+                height 0.1s ease !important;
+}
+
+.tabbrowser-tab[fadein]:not([pinned]) {
+    max-width: 175px !important;
+}
+
+.tabbrowser-tab[selected]:not([pinned]) {
+    min-width: 250px !important;
+    max-width: 250px !important;
+}
+
+/* Hide tab close button by default */
+.tab-close-button {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none; /* Prevent accidental clicks when invisible */
+}
+
+/* Show close button on tab hover (not pinned tabs) */
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Bookmark toolbar slide in/out */
+#PersonalToolbar {
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+#PersonalToolbar[collapsed="false"] {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Animate individual bookmark items */
+#PersonalToolbar toolbarbutton {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    border-radius: 6px !important;
+}
+
+/* Hover effect on individual bookmarks */
+#PersonalToolbar toolbarbutton:hover {
+    transform: scale(1.05);
+    background-color: var(--toolbarbutton-hover-background, rgba(255,255,255,0.1)) !important;
+}
+
+/* Dim bookmark bar when not hovering */
+#navigator-toolbox:not(:hover) #PersonalToolbar {
+    opacity: 0.4;
+}
+
+/* URL bar starts dim and slightly smaller */
+#urlbar {
+    opacity: 0.7;
+    transform: scale(0.95);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* On hover or focus, restore full visibility and size */
+#urlbar:hover,
+#urlbar[focused="true"] {
+    opacity: 1;
+    transform: scale(1);
+}
