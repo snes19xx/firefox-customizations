@@ -1,4 +1,4 @@
-# snes-firefox-customizations
+# firefox-customizations
 My personal Firefox UI tweaks and userChrome.css customizations and animations
 
 # Firefox Customizations
